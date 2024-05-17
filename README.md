@@ -24,7 +24,7 @@ Update README.md:
 ## Stage 2:
 - Clarify existing use-cases based on updated functional requirements
 - Use "user story" template (e.g., "as a user, I want to ..., so that...)
-- An example: an event should support different states/statuses (e.g., CREATED, BOOKED, COMPLETED/ARCHIVED)
+- An example: an event should support different states/statuses (e.g., CREATED, BOOKED, COMPLETED/ARCHIVED, CANCELLED)
 
 > Note: statuses -> enums in Java (think about db table) + read about `State` design pattern!
 
