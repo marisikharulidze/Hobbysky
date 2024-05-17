@@ -1,5 +1,10 @@
 # Hobbysky
+Web application is for finding new hobbies, meeting new people and having fun. Hobbysky is a platform where you can join in events with people doing your favorite activities. Such as: painting, swimming, running, skiing, reading, playing sports, cooking and a lot of different things. Event members can make only one event by themselves, not more, other events are made by administrator. Event locations, time or other details can be changed or discussed by the group members. 
 Project is for people who wants to do what they enjoy, meet new people and be more outgoing.
+With the help of this application it will be easier and more fun to do what they like with the people, who are interested in the same fields. 
+
+The system must display events, where people can join in(can have event chat). Profile, administration, searching through events, events can be archived(only admin can remove the event).
+The system should be: fast, secure, working 24/7. 
 
 ## Stage 1:
 Update README.md:
@@ -10,7 +15,7 @@ Update README.md:
 ## Stage 2:
 - Clarify existing use-cases based on updated functional requirements
 - Use "user story" template (e.g., "as a user, I want to ..., so that...)
-- An example: an event should support different states/statuses (e.g., CREATED, BOOKE, IN PROGRESS, COMPLETED, ARCHIVED)
+- An example: an event should support different states/statuses (e.g., CREATED, BOOKED, COMPLETED/ARCHIVED)
 
 > Note: statuses -> enums in Java (think about db table) + read about `State` design pattern!
 
