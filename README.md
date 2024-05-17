@@ -15,18 +15,19 @@ Non-Functional Requirements: The system should be
 - secure
 - working 24/7. 
 
-## Stage 1:
-Update README.md:
-- add project overview
-- add functional requirements (move to wiki)
-- non functional requirements (move to wiki)
-
-## Stage 2:
-- Clarify existing use-cases based on updated functional requirements
-- Use "user story" template (e.g., "as a user, I want to ..., so that...)
-- An example: an event should support different states/statuses (e.g., CREATED, BOOKED, COMPLETED/ARCHIVED, CANCELLED)
-
-> Note: statuses -> enums in Java (think about db table) + read about `State` design pattern!
+## Homeworkon Wednesday:
+- move functional & non-functional requirements to project documentation (Wiki)
+- class diagrams (under architecture design page)
+- update database diagram to include constraints:
+  - not null checks
+  - unique
+  - database index (for performant search) - nice-to-have
+- Java constraints:
+  - description should not be blank (not null + not empty) + min description length (1 character) + max description length (500 characters)
+  - creation date (should not be in the past)
+- stage #4 task (user interface mockup):
+  - HTML + CSS + JS
+  - GPT prompts - nice-to-have
 
 ## Stage 3:
 - Review updated use cases
