@@ -18,8 +18,8 @@ Non-Functional Requirements: The system should be
 ## Stage 1:
 Update README.md:
 - add project overview
-- add functional requirements 
-- non functional requirements
+- add functional requirements (move to wiki)
+- non functional requirements (move to wiki)
 
 ## Stage 2:
 - Clarify existing use-cases based on updated functional requirements
