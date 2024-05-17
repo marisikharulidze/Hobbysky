@@ -9,6 +9,7 @@ Functional Requirements:
 - administration
 - searching through events
 - events can be archived(only admin can remove the event).
+
 Non-Functional Requirements: The system should be
 - fast
 - secure
