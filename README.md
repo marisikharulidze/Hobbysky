@@ -3,8 +3,8 @@ Web application is for finding new hobbies, meeting new people and having fun. H
 Project is for people who wants to do what they enjoy, meet new people and be more outgoing.
 With the help of this application it will be easier and more fun to do what they like with the people, who are interested in the same fields. 
 
-The system must display events, where people can join in(can have event chat). Profile, administration, searching through events, events can be archived(only admin can remove the event).
-The system should be: fast, secure, working 24/7. 
+- The system must display events, where people can join in(can have event chat). Profile, administration, searching through events, events can be archived(only admin can remove the event).
+- The system should be: fast, secure, working 24/7. 
 
 ## Stage 1:
 Update README.md:
