@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbysky</title>
+    <link th:href="@{/styles/cssandjs/styles.css}" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Karma' rel='stylesheet'>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="header-content">
+            <img th:src="@{/img/HS (3).png}" alt="" style="width:3%; height:3%;">
+            <nav>
+                <a th:href="@{/HomePage}">Platform</a>
+                <a th:href="@{/Events}">Events</a>
+                <a th:href="@{/Pricing}">Pricing</a>
+            </nav>
+
+            <!-- Thymeleaf conditional check -->
+            <!-- <div th:if="${#strings.hasText(session.mail)}">
+                <a th:href="@{/Profile}" class="text-dark iconBlue">
+                    <img src="~/Content/img/usericons/profile.png" alt="Image" class="img-fluid " style=" width: 20px; height: 20px; object-fit:cover; ">
+                </a>
+                <a th:href="@{/Logout}" class="text-dark">
+                    <img src="~/Content/img/usericons/logout.png" alt="Image" class="img-fluid " style=" width: 20px; height: 20px; object-fit:cover; ">
+                </a>
+            </div>
+            <div th:unless="${#strings.hasText(session.mail)}">
+                <a th:href="@{/Login}" class="nav-link loginRegistration">ავტორიზაცია</a><span style="margin-left:1% !important"></span>
+                <a th:href="@{/Signup}" class="nav-link loginRegistration">რეგისტრაცია</a>
+            </div> -->
+
+            <a th:href="@{/Register}" style="margin-left: 75%;margin-right: 1%; color: black;text-decoration: none;">Sign In</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" style="text-decoration: none; color: black;">
+                    <img th:src="@{/img/4.png}" alt="" style="width:20px; height:20px;">
+                </a>
+                <div class="dropdown-content">
+                    <a th:href="@{/Profile}">Profile</a>
+                    <a th:href="@{/Settings}">Settings</a>
+                    <a th:href="@{/LogOut}">Log out</a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <section class="main-content">
+        <div class="text1">Don't let your hobbies fade away embrace them with Hobbysky</div>
+        <div class="desc-content">
+            <img th:src="@{/img/2.png}" alt="Hobby Image 1" class="img1">
+        </div>
+    </section>
+
+    <div class="welcome">Welcome to Hobbysky, your go-to web application for exploring new hobbies, meeting new people, and having fun. Our platform allows you to join events centered around your favorite activities, such as painting, swimming, running, skiing, reading, playing sports, cooking, and much more.</div>
+    <section class="main-content">
+        <div class="box">
+            <div class="welcome" style="margin-top: 120px;font-size: 32px;">Hobbysky is designed for individuals who want to pursue their passions, expand their social circles, and become more outgoing.</div>
+        </div>
+        <div class="desc-content">
+            <img th:src="@{/img/1.png}" alt="Hobby Image 1" class="img2">
+        </div>
+    </section>
+    <div class="welcome">Often, people find it challenging to engage in their interests because their friends do not share the same hobbies. Our platform solves this by connecting you with others who share your interests, making it easier and more enjoyable to do what you love.</div>
+
+    <section class="main-content">
+        <div class="box" style="margin-left: 10px; width: 790px;">
+            <div class="welcome" style="margin-top: 60px;font-size: 32px;">At Hobbysky, you can participate in events organized by both fellow enthusiasts and our administrators. While members can create one event themselves, additional events are curated by our administrators to ensure a diverse range of activities.</div>
+        </div>
+        <div class="desc-content">
+            <img th:src="@{/img/3.png}" alt="Hobby Image 1" class="img3">
+        </div>
+    </section>
+
+    <div class="welcome">Join us today and start your journey towards new experiences and friendships.</div>
+
+    <section class="cta" style="margin-bottom:50px">
+        <button th:onclick="|location.href='#'|">Join Us</button>
+    </section>
+
+    <footer>
+        <p>© 2024 Hobbysky, all rights reserved</p>
+    </footer>
+</div>
+</body>
+</html>
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Home</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Welcome to Thymeleaf</h1>-->
+<!--<p th:text="'Hello, ' + ${name} + '!'"></p>-->
+
+<!--<table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>ID</th>-->
+<!--        <th>Name</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="hobby : ${hobbies}">-->
+<!--        <td th:text="${hobby.id}">...</td>-->
+<!--        <td th:text="${hobby.name}">...</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->

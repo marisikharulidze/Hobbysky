@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <style>
+        /* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #007bff; /* Hobbysky brand color */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff; /* Hobbysky brand color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade of brand color */
+}
+
+footer {
+    background-color: #f8f9fa; /* Light gray */
+    color: #495057; /* Dark gray */
+    padding: 10px;
+    text-align: center;
+}
+
+/* Additional styles */
+hr {
+    border: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Settings</h1>
+</header>
+
+<main>
+    <div class="container">
+        <form action="#" method="post">
+            <h2>Profile Information</h2>
+            <label for="profile-picture">Profile Picture:</label>
+            <input type="file" id="profile-picture">
+
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName">
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName">
+
+            <label for="phoneNum">Phone Number:</label>
+            <input type="text" id="phoneNum">
+
+            <label for="location">Location:</label>
+            <input type="text" id="location">
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob">
+
+            <hr>
+
+            <h2>Security Settings</h2>
+            <label for="password">Change Password:</label>
+            <input type="password" id="password">
+
+            <label for="confirm-password">Confirm New Password:</label>
+            <input type="password" id="confirm-password">
+
+            <hr>
+
+<!--            <h2>Theme Customization</h2>-->
+<!--            <label for="theme">Select Theme:</label>-->
+<!--            <select id="theme">-->
+<!--                <option value="light">Light</option>-->
+<!--                <option value="dark">Dark</option>-->
+<!--            </select>-->
+
+<!--            <hr>-->
+
+<!--            <h2>Email Preferences</h2>-->
+<!--            <label for="email-notifications">Email Notifications:</label>-->
+<!--            <select id="email-notifications">-->
+<!--                <option value="on">On</option>-->
+<!--                <option value="off">Off</option>-->
+<!--            </select>-->
+
+<!--            <hr>-->
+
+<!--            <h2>Connected Accounts</h2>-->
+<!--            <button type="button" id="connect-google">Connect with Google</button>-->
+<!--            <button type="button" id="connect-facebook">Connect with Facebook</button>-->
+
+<!--            <hr>-->
+
+<!--            <h2>Privacy Settings</h2>-->
+<!--            <label for="profile-visibility">Profile Visibility:</label>-->
+<!--            <select id="profile-visibility">-->
+<!--                <option value="public">Public</option>-->
+<!--                <option value="friends">Friends Only</option>-->
+<!--                <option value="private">Private</option>-->
+<!--            </select>-->
+
+<!--            <hr>-->
+
+<!--            <h2>Language Preferences</h2>-->
+<!--            <label for="language">Select Language:</label>-->
+<!--            <select id="language">-->
+<!--                <option value="en">English</option>-->
+<!--                <option value="fr">French</option>-->
+<!--                <option value="es">Spanish</option>-->
+<!--            </select>-->
+
+<!--            <hr>-->
+
+<!--            <h2>Data Management</h2>-->
+<!--            <button type="button" id="export-data">Export Data</button>-->
+<!--            <button type="button" id="delete-account">Delete Account</button>-->
+
+<!--            <hr>-->
+
+<!--            <h2>Activity Log</h2>-->
+<!--            &lt;!&ndash; Display recent account activity log here &ndash;&gt;-->
+
+<!--            <hr>-->
+
+            <h2>Help and Support</h2>
+            <p>For assistance or inquiries, please visit our <a href="#">Help Center</a> or contact <a href="#">Support</a>.</p>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Hobbysky, all rights reserved</p>
+</footer>
+</body>
+</html>

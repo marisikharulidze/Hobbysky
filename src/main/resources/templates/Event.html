@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbysky</title>
+    <link th:href="@{/styles/cssandjs/Profile.css}" rel="stylesheet" />
+    <link th:href="@{/styles/cssandjs/styles.css}" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Karma' rel='stylesheet'>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="header-content">
+            <img th:src="@{/img/HS (3).png}" alt="" style="width:3%; height:3%;">
+            <nav>
+                <a th:href="@{/HomePage}">Platform</a>
+                <a th:href="@{/Events}">Events</a>
+                <a href="#">Pricing</a>
+            </nav>
+            <a th:href="@{/Register}" style="margin-left: 75%; margin-right: 1%; color: black; text-decoration: none;">Join us</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" style="text-decoration: none; color: black;">
+                    <img th:src="@{/img/4.png}" alt="" style="width:20px; height:20px;">
+                </a>
+                <div class="dropdown-content">
+                    <a th:href="@{/Profile}">Profile</a>
+                    <a th:href="@{/Settings}">Settings</a>
+                    <a th:href="@{/LogOut}">Log out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="profile-banner">
+            <img th:src="@{/img/13.jpg}" class="blur" alt="Banner Image">
+            <div class="profile-info">
+                <div class="profile-picture">
+                    <input type="file" id="avatar-upload" accept="image/*" onchange="updateAvatar()" style="display:none;">
+                </div>
+                <div class="profile-details">
+                    <h1 id="artist-name" style="margin-left: 380px;" th:text="${event.name}"></h1>
+                </div>
+            </div>
+        </section>
+        <div style="color:black; margin-top:40x">
+            Date : <div th:text="${event.date}"></div>
+            Location : <div  th:text="${event.location}"></div>
+            Description : <div th:text="${event.description}"></div>
+            hobby : <div th:text="${event.hobby}"></div>
+            Num Of Participants : <div th:text="${event.numOfParticipants}"></div>
+            Creation Date : <div th:text="${event.creationDate}"></div>
+        </div>
+    </main>
+    <script src="../static/js/cssandjs/scripts.js"></script>
+    <footer style="margin-top: 100px;">
+        <p>© 2024 Hobbysky, all rights reserved</p>
+    </footer>
+</div>
+</body>
+</html>

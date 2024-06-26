@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <link th:href="@{/styles/cssandjs/styles.css}" rel="stylesheet"/>
+    <link th:href="@{/styles/cssandjs/addEvent.css}" rel="stylesheet"/>
+    <link href='https://fonts.googleapis.com/css?family=Karma' rel='stylesheet'>
+    <style>
+        <style>
+    /* Container for the entire form */
+.add-event-container {
+max-width: 600px;
+margin: 0 auto;
+padding: 20px;
+background-color: #f7f7f7;
+border-radius: 10px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form title */
+.add-event-container .form-title {
+text-align: center;
+font-family: 'Karma', sans-serif;
+color: #333;
+margin-bottom: 20px;
+}
+
+/* Form labels */
+.add-event-container label {
+display: block;
+margin-bottom: 8px;
+font-weight: bold;
+color: #555;
+}
+
+/* Form inputs */
+.add-event-container input[type="text"],
+.add-event-container input[type="datetime-local"],
+.add-event-container input[type="number"],
+.add-event-container select,
+.add-event-container textarea {
+width: 100%;
+padding: 10px;
+margin-bottom: 20px;
+border: 1px solid #ddd;
+border-radius: 5px;
+box-sizing: border-box;
+font-family: 'Karma', sans-serif;
+}
+
+/* Submit button */
+.add-event-container .submit-btn {
+width: 100%;
+padding: 12px;
+background-color: #000;
+color: white;
+border: none;
+border-radius: 5px;
+font-family: 'Karma', sans-serif;
+font-size: 16px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.add-event-container .submit-btn:hover {
+background-color: #333;
+}
+
+/* Form textarea */
+.add-event-container textarea {
+resize: vertical;
+}
+
+/* Additional styles */
+.add-event-container .form-group {
+margin-bottom: 15px;
+}
+
+.add-event-container .form-group:last-child {
+margin-bottom: 0;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="header-content">
+            <img th:src="@{/img/HS (3).png}" alt="" style="width:3%; height:3%;">
+            <nav>
+                <a th:href="@{/HomePage}">Platform</a>
+                <a th:href="@{/Events}">Events</a>
+                <a href="#">Pricing</a>
+            </nav>
+            <a th:href="@{/Register}" style="margin-left: 75%; margin-right: 1%; color: black; text-decoration: none;">Join
+                us</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" style="text-decoration: none; color: black;">
+                    <img th:src="@{/img/4.png}" alt="" style="width:20px; height:20px;">
+                </a>
+                <div class="dropdown-content">
+                    <a th:href="@{/Profile}">Profile</a>
+                    <a th:href="@{/Settings}">Settings</a>
+                    <a th:href="@{/LogOut}">Log out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="add-event-container">
+            <h2 class="form-title">Add Event</h2>
+            <form action="/AddEvent" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Event Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Event Date:</label>
+                    <input type="datetime-local" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <select id="location" name="location" required>
+                        <option value="" disabled selected>Select a location</option>
+                        <!-- Options will be dynamically populated from the database -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="hobby">Hobby:</label>
+                    <select id="hobby" name="hobby" required>
+                        <option value="" disabled selected>Select a hobby</option>
+                        <!-- Options will be dynamically populated from the database -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="numOfParticipants">Number of Participants:</label>
+                    <input type="number" id="numOfParticipants" name="numOfParticipants">
+                </div>
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <input type="text" id="status" name="status" required>
+                </div>
+                <div class="form-group">
+                    <label for="image">Upload Image:</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Add Event</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer style="margin-top: 100px;">
+        <p>© 2024 Hobbysky, all rights reserved</p>
+    </footer>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/api/hobbies')
+            .then(response => response.json())
+            .then(data => {
+                const hobbySelect = document.getElementById('hobby');
+                data.forEach(hobby => {
+                    const option = document.createElement('option');
+                    option.value = hobby.id;
+                    option.textContent = hobby.name;
+                    hobbySelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching hobbies:', error));
+
+        fetch('/api/locations')
+            .then(response => response.json())
+            .then(data => {
+                const locationSelect = document.getElementById('location');
+                data.forEach(location => {
+                    const option = document.createElement('option');
+                    option.value = location.id;
+                    option.textContent = location.city + ', ' + location.country;
+                    locationSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching locations:', error));
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbysky</title>
+    <link th:href="@{/styles/cssandjs/styles.css}" rel="stylesheet" />
+    <link th:href="@{/styles/cssandjs/s.css}" rel="stylesheet" />
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="header-content">
+            <img th:src="@{/img/HS (3).png}" alt="" style="width:3%; height:3%;">
+            <nav>
+                <a th:href="@{/HomePage}">Platform</a>
+                <a th:href="@{/Events}">Events</a>
+                <a th:href="@{/Pricing}">Pricing</a>
+            </nav>
+            <a th:href="@{/Register}" style="margin-left: 75%;margin-right: 1%; color: black;text-decoration: none;">Join us</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" style="text-decoration: none; color: black;">
+                    <img th:src="@{/img/4.png}" alt="" style="width:20px; height:20px;">
+                </a>
+                <div class="dropdown-content">
+                    <a th:href="@{/Profile}">Profile</a>
+                    <a th:href="@{/Settings}">Settings</a>
+                    <a th:href="@{/LogOut}">Log out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <div class="main-container">
+            <div class="profile">
+                <img th:src="@{/img/11.jpg}" alt="" class="profile-cover">
+                <div class="profile-info">
+
+                    <table style="position:absolute; top:460px; ">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Last Name</th>
+                            <th>Date of Birth</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="person : ${people}">
+                            <td> <a th:href="@{/Profile/{id}(id=${person.id})}" th:text="${person.id}">...</a></td>
+                            <td><a th:href="@{/Profile/{id}(id=${person.id})}" th:text="${person.firstName}"></a></td>
+                            <td><a th:href="@{/Profile/{id}(id=${person.id})}" th:text="${person.lastName}"></a></td>
+                            <td><a th:href="@{/Profile/{id}(id=${person.id})}" th:text="${person.dateOfBirth}"></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="trends">
+                <div class="follow-buttons">
+                    <div class="search-container">
+                        <!-- Updated search form -->
+                        <form th:action="@{/People}" method="get">
+                            <input type="text" name="search" class="search-input" placeholder="Search...">
+                            <button type="submit" class="search-button">Search</button>
+                        </form>
+                    </div>
+                    <a th:href="@{/Events}" class="follow" style="background-color: rgb(234, 234, 234); margin-left: 290px;">Events</a>
+                    <a th:href="@{/People}" class="follow follow-option active">People</a>
+                </div>
+            </div>
+            <div class="videos">
+                <div class="video" th:each="video : ${videos}">
+                    <div class="video-time" th:text="${video.time}">15.13</div>
+                    <img th:src="@{/img/5.jpg}" alt="">
+                    <div class="video-content" th:text="${video.content}">Basketball</div>
+                    <div class="view" th:text="${video.views} + ' views'">15.4k views</div>
+                </div>
+                <div th:if="${moreVideos}" th:text="'Load More'"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Hobbysky, all rights reserved</p>
+    </footer>
+</div>
+</body>
+</html>
