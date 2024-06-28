@@ -99,17 +99,20 @@
                 <a th:href="@{/Events}">Events</a>
                 <a th:href="@{/Pricing}">Pricing</a>
             </nav>
-            <a th:href="@{/Register}" style="margin-left: 75%; margin-right: 1%; color: black; text-decoration: none;">Join us</a>
-            <div class="dropdown">
+
+            <!--            <a th:href="@{/Register}" style="margin-left: 75%;margin-right: 1%; color: black;text-decoration: none;">Sign In</a>-->
+            <div class="dropdown" style="margin-left:120px">
                 <a href="#" class="dropbtn" style="text-decoration: none; color: black;">
-                    <img th:src="@{/img/4.png}" alt="" style="width:20px; height:20px;">
+                    <img th:src="@{/img/4.png}" alt="" style="width:20px; height:20px; margin-left: 1050px;margin-right: 1%;">
                 </a>
                 <div class="dropdown-content">
                     <a th:href="@{/Profile}">Profile</a>
                     <a th:href="@{/Settings}">Settings</a>
+                    <a th:href="@{/AddEvent}">Add Event</a>
                     <a th:href="@{/LogOut}">Log out</a>
                 </div>
             </div>
+
         </div>
     </header>
 
@@ -142,7 +145,7 @@
 <!--                            event.users   is somehow always null -->
                             <form th:action="@{/joinEvent}" method="post" th:if="${event.users == null || !#lists.contains(event.users, currentUser)}">
                                 <input type="hidden" name="eventId" th:value="${event.id}">
-                                <button type="submit" class="search-button">Join Event</button>
+                                <button type="submit" class="search-button" style="margin-top:20px;height:40px;width:120px">Join Event</button>
                             </form>
                             <form th:action="@{/unjoinEvent}" method="post" th:if="${event.users != null && #lists.contains(event.users, currentUser)}">
                                 <input type="hidden" name="eventId" th:value="${event.id}">

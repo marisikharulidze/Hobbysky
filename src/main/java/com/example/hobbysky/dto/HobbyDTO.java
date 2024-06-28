@@ -9,6 +9,9 @@ public class HobbyDTO {
     public HobbyDTO() {
     }
 
+    public HobbyDTO(String number, String reading) {
+    }
+
     public Long getId() {
         return this.id;
     }
@@ -39,7 +42,7 @@ public class HobbyDTO {
         return true;
     }
 
-    protected boolean canEqual(final Object other) {
+    public boolean canEqual(final Object other) {
         return other instanceof HobbyDTO;
     }
 

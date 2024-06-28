@@ -16,19 +16,22 @@
             <nav>
                 <a th:href="@{/HomePage}">Platform</a>
                 <a th:href="@{/Events}">Events</a>
-                <a href="#">Pricing</a>
+                <a th:href="@{/Pricing}">Pricing</a>
             </nav>
-            <a th:href="@{/Register}" style="margin-left: 75%; margin-right: 1%; color: black; text-decoration: none;">Join us</a>
-            <div class="dropdown">
+
+            <!--            <a th:href="@{/Register}" style="margin-left: 75%;margin-right: 1%; color: black;text-decoration: none;">Sign In</a>-->
+            <div class="dropdown" style="margin-left:120px">
                 <a href="#" class="dropbtn" style="text-decoration: none; color: black;">
-                    <img th:src="@{/img/4.png}" alt="" style="width:20px; height:20px;">
+                    <img th:src="@{/img/4.png}" alt="" style="width:20px; height:20px; margin-left: 1050px;margin-right: 1%;">
                 </a>
                 <div class="dropdown-content">
                     <a th:href="@{/Profile}">Profile</a>
                     <a th:href="@{/Settings}">Settings</a>
+                    <a th:href="@{/AddEvent}">Add Event</a>
                     <a th:href="@{/LogOut}">Log out</a>
                 </div>
             </div>
+
         </div>
     </header>
     <main>
@@ -45,14 +48,14 @@
             </div>
         </section>
         <div class="profile-details">
-            <button class="share-btn" style="margin-left: 400px; margin-top: 20px;">SHARE PROFILE</button>
+<!--            <button class="share-btn" style="margin-left: 400px; margin-top: 20px;">SHARE PROFILE</button>-->
 <!--            <button class="edit-profile-btn" style="margin-left: 4px;" onclick="openEditProfile()">EDIT PROFILE</button>-->
-            <button class="share-btn" style="margin-left: 4px;" onclick="location.href='/AddEvent'">ADD EVENT</button>
+<!--            <button class="share-btn" style="margin-left: 4px;" onclick="location.href='/AddEvent'">ADD EVENT</button>-->
         </div>
         <section class="profile-content">
             <div class="profile-sidebar">
                 <h2>Hobbies</h2>
-                <div style="margin-left: 380px;" th:each="hobby : ${user.hobbies}" th:text="${hobby.name}"></div>
+                <div style="margin-left: 10px;" th:each="hobby : ${user.hobbies}" th:text="${hobby.name}"></div>
                 <div class="profile-stats">
                     <!-- <p><strong>Attended events</strong><br th:text="${user.events}">299</p> -->
                     <!-- <p><strong>Joined </strong><br th:text="${user.following}">20</p> -->

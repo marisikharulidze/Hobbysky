@@ -71,8 +71,9 @@ public class EventsController {
         return "AddEvent";
     }
 
-    @PreAuthorize("hasRole('USER')")
+//    @PreAuthorize("hasRole('USER')")
     @PostMapping("/AddEvent")
+    @PreAuthorize("permitAll()")
     public String addEvent(@ModelAttribute EventDTO eventDTO, @RequestParam("image") MultipartFile file) {
         if (!file.isEmpty()) {
             try {

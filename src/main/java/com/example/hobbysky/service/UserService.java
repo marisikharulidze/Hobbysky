@@ -3,6 +3,7 @@ package com.example.hobbysky.service;
 import com.example.hobbysky.dto.UserDTO;
 import com.example.hobbysky.mapper.UserMapper;
 import com.example.hobbysky.model.Event;
+import com.example.hobbysky.model.Role;
 import com.example.hobbysky.model.User;
 import com.example.hobbysky.repository.EventRepository;
 import com.example.hobbysky.repository.UserRepository;
@@ -32,11 +33,12 @@ public class UserService implements UserDetailsService {
         this.userMapper = userMapper;
     }
 
-    //new
+    //fixxxx
     public void saveUser(UserDTO userDTO) {
         validateUniqueEmail(userDTO.getEmail(), userDTO.getId());
         User user = userMapper.userDTOToUser(userDTO);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole(Role.customer);
         userRepository.save(user);
     }
 
@@ -70,6 +72,9 @@ public class UserService implements UserDetailsService {
 
     // Method to save or update user details
     public void updateUser(UserDTO userDTO) {
+        if (userDTO.getId() == null) {
+            throw new RuntimeException("User id is null");
+        }
         validateUniqueEmail(userDTO.getEmail(), userDTO.getId());
         User user = userRepository.findById(userDTO.getId())
                 .orElseThrow(() -> new RuntimeException("User not found"));

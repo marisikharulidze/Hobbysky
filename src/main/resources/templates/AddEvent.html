@@ -110,7 +110,7 @@ margin-bottom: 0;
     <main>
         <div class="add-event-container">
             <h2 class="form-title">Add Event</h2>
-            <form action="/AddEvent" method="post" enctype="multipart/form-data">
+            <form th:action="@{/AddEvent}" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Event Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -123,7 +123,6 @@ margin-bottom: 0;
                     <label for="location">Location:</label>
                     <select id="location" name="location" required>
                         <option value="" disabled selected>Select a location</option>
-                        <!-- Options will be dynamically populated from the database -->
                     </select>
                 </div>
                 <div class="form-group">
@@ -134,7 +133,6 @@ margin-bottom: 0;
                     <label for="hobby">Hobby:</label>
                     <select id="hobby" name="hobby" required>
                         <option value="" disabled selected>Select a hobby</option>
-                        <!-- Options will be dynamically populated from the database -->
                     </select>
                 </div>
                 <div class="form-group">

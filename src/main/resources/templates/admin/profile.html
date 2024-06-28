@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Details</title>
+    <!-- Add any custom CSS styles here -->
+    <style>
+        /* Custom CSS styles */
+        .profile-details {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Profile Details</h2>
+    <div class="profile-details">
+        <p><strong>ID:</strong> <span th:text="${profile.id}"></span></p>
+        <p><strong>Description:</strong> <span th:text="${profile.description}"></span></p>
+        <p><strong>Image URL:</strong> <span th:text="${profile.image}"></span></p>
+        <p><strong>User:</strong> <span th:text="${profile.user.username}"></span></p>
+        <p><strong>Creation Date:</strong> <span th:text="${profile.creationDate}"></span></p>
+        <p><strong>Last Modified Date:</strong> <span th:text="${profile.lastModifiedDate}"></span></p>
+    </div>
+    <a th:href="@{/admin/profiles/}" class="btn btn-primary">Back to Profiles</a>
+</div>
+</body>
+</html>

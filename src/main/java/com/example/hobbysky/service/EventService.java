@@ -45,10 +45,10 @@ public class EventService {
                 .collect(Collectors.toList());
     }
 
-    public EventDTO createEvent(EventDTO eventDTO) {
+    public void createEvent(EventDTO eventDTO) {
         Event event = eventMapper.eventDTOToEvent(eventDTO);
         event = eventRepository.save(event);
-        return eventMapper.eventToEventDTO(event);
+        eventMapper.eventToEventDTO(event);
     }
 
     public void deleteEvent(Long id) {

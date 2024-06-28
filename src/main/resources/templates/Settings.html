@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,25 +105,25 @@ hr {
 
 <main>
     <div class="container">
-        <form action="#" method="post">
-            <h2>Profile Information</h2>
+        <form th:action="@{/Profile}" method="post" enctype="multipart/form-data">
+            <input type="hidden" id="id" name="id" value="${user.id}">
             <label for="profile-picture">Profile Picture:</label>
-            <input type="file" id="profile-picture">
+            <input type="file" id="profile-picture" name="profilePicture">
 
             <label for="firstName">First Name:</label>
-            <input type="text" id="firstName">
+            <input type="text" id="firstName" name="firstName" required>
 
             <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName">
+            <input type="text" id="lastName" name="lastName" required>
 
             <label for="phoneNum">Phone Number:</label>
-            <input type="text" id="phoneNum">
+            <input type="text" id="phoneNum" name="phoneNum">
 
             <label for="location">Location:</label>
-            <input type="text" id="location">
+            <input type="text" id="location" name="location">
 
             <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob">
+            <input type="date" id="dob" name="dob">
 
             <hr>
 

@@ -3,6 +3,7 @@ package com.example.hobbysky.service;
 
 import com.example.hobbysky.dto.ProfileDTO;
 import com.example.hobbysky.mapper.ProfileMapper;
+import com.example.hobbysky.mapper.UserMapper;
 import com.example.hobbysky.model.Profile;
 import com.example.hobbysky.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ public class ProfileService {
 
     private final ProfileRepository profileRepository;
     private static final ProfileMapper profileMapper = ProfileMapper.INSTANCE;
+    private static final UserMapper userMapper = UserMapper.INSTANCE;
 
     public ProfileService(ProfileRepository profileRepository) {
         this.profileRepository = profileRepository;
@@ -50,7 +52,7 @@ public class ProfileService {
 
         existingProfile.setDescription(profileDTO.getDescription());
         existingProfile.setImage(profileDTO.getImage());
-//        existingProfile.setUser(profileMapper.userDTOToUser(profileDTO.getUser()));
+        existingProfile.setUser(userMapper.userDTOToUser(profileDTO.getUser()));
         existingProfile.setCreationDate(profileDTO.getCreationDate());
         existingProfile.setLastModifiedDate(profileDTO.getLastModifiedDate());
 

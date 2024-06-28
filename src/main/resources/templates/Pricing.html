@@ -74,31 +74,18 @@
             <nav>
                 <a th:href="@{/HomePage}">Platform</a>
                 <a th:href="@{/Events}">Events</a>
-                <a href="#">Pricing</a>
+                <a th:href="@{/Pricing}">Pricing</a>
             </nav>
 
-            <!-- Thymeleaf conditional check -->
-            <!-- <div th:if="${#strings.hasText(session.mail)}">
-                <a th:href="@{/Profile}" class="text-dark iconBlue">
-                    <img src="~/Content/img/usericons/profile.png" alt="Image" class="img-fluid " style=" width: 20px; height: 20px; object-fit:cover; ">
-                </a>
-                <a th:href="@{/Logout}" class="text-dark">
-                    <img src="~/Content/img/usericons/logout.png" alt="Image" class="img-fluid " style=" width: 20px; height: 20px; object-fit:cover; ">
-                </a>
-            </div>
-            <div th:unless="${#strings.hasText(session.mail)}">
-                <a th:href="@{/Login}" class="nav-link loginRegistration">ავტორიზაცია</a><span style="margin-left:1% !important"></span>
-                <a th:href="@{/Signup}" class="nav-link loginRegistration">რეგისტრაცია</a>
-            </div> -->
-
-            <a th:href="@{/Register}" style="margin-left: 75%;margin-right: 1%; color: black;text-decoration: none;">Sign In</a>
-            <div class="dropdown">
+            <!--            <a th:href="@{/Register}" style="margin-left: 75%;margin-right: 1%; color: black;text-decoration: none;">Sign In</a>-->
+            <div class="dropdown" style="margin-left:120px">
                 <a href="#" class="dropbtn" style="text-decoration: none; color: black;">
-                    <img th:src="@{/img/4.png}" alt="" style="width:20px; height:20px;">
+                    <img th:src="@{/img/4.png}" alt="" style="width:20px; height:20px; margin-left: 1050px;margin-right: 1%;">
                 </a>
                 <div class="dropdown-content">
                     <a th:href="@{/Profile}">Profile</a>
                     <a th:href="@{/Settings}">Settings</a>
+                    <a th:href="@{/AddEvent}">Add Event</a>
                     <a th:href="@{/LogOut}">Log out</a>
                 </div>
             </div>

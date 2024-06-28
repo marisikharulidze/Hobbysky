@@ -10,6 +10,9 @@ public class LocationDTO {
     private String country;
     private String city;
 
+    public LocationDTO(String number, String canada, String toronto) {
+    }
+
     public Long getId() {
         return id;
     }
@@ -24,6 +27,9 @@ public class LocationDTO {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public LocationDTO() {
     }
 
     public String getCity() {

@@ -32,7 +32,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/h2-console/**", "/Register", "/styles/**", "/js/**", "/login", "/HomePage").permitAll()
+//                        .requestMatchers("/admin/**").hasRole("director")
+                        .requestMatchers("/h2-console/**", "/Register", "/styles/**", "/js/**", "/login").permitAll()
                         .anyRequest().authenticated()
                 )
                 .csrf(AbstractHttpConfigurer::disable) // Disable CSRF protection for H2 console

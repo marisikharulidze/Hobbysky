@@ -23,17 +23,20 @@
                 <a th:href="@{/Events}">Events</a>
                 <a th:href="@{/Pricing}">Pricing</a>
             </nav>
-            <a th:href="@{/Register}" style="margin-left: 75%;margin-right: 1%; color: black;text-decoration: none;">Join us</a>
-            <div class="dropdown">
+
+            <!--            <a th:href="@{/Register}" style="margin-left: 75%;margin-right: 1%; color: black;text-decoration: none;">Sign In</a>-->
+            <div class="dropdown" style="margin-left:120px">
                 <a href="#" class="dropbtn" style="text-decoration: none; color: black;">
-                    <img th:src="@{/img/4.png}" alt="" style="width:20px; height:20px;">
+                    <img th:src="@{/img/4.png}" alt="" style="width:20px; height:20px; margin-left: 1050px;margin-right: 1%;">
                 </a>
                 <div class="dropdown-content">
                     <a th:href="@{/Profile}">Profile</a>
                     <a th:href="@{/Settings}">Settings</a>
+                    <a th:href="@{/AddEvent}">Add Event</a>
                     <a th:href="@{/LogOut}">Log out</a>
                 </div>
             </div>
+
         </div>
     </header>
 
@@ -72,8 +75,8 @@
                             <button type="submit" class="search-button">Search</button>
                         </form>
                     </div>
-                    <a th:href="@{/Events}" class="follow" style="background-color: rgb(234, 234, 234); margin-left: 290px;">Events</a>
-                    <a th:href="@{/People}" class="follow follow-option active">People</a>
+                    <a th:href="@{/Events}" class="follow" style="margin-left: 290px;">Events</a>
+                    <a th:href="@{/People}" class="follow follow-option active" style="background-color: rgb(234, 234, 234);">People</a>
                 </div>
             </div>
             <div class="videos">

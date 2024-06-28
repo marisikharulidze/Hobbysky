@@ -41,12 +41,12 @@ public class HobbyskyApplication implements CommandLineRunner {
 
 		//make specific user by yourself
 //		var user = new User();
-//		user.setEmail("mary.sikharulidze@gmail.com");
-//		var password = passwordEncoder.encode("admin");
+//		user.setEmail("mary@gmail.com");
+//		var password = passwordEncoder.encode("p");
 //		System.out.println("Encrypted password: " + password);
 //
 //		user.setPassword(password);
-//		user.setRole(Role.customer);
+//		user.setRole(Role.director);
 //		user.setFirstName("mari");
 //		user.setLastName("sikh");
 //		System.out.println("User: " + user.toString());

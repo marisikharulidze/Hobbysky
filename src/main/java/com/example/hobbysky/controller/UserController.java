@@ -5,6 +5,7 @@ import com.example.hobbysky.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,17 +41,11 @@ public class UserController {
     @PreAuthorize("hasRole('USER')")
     @GetMapping("/Settings")
     public String settings(Model model) {
-        UserDTO user = userService.getCurrentUser();
-        model.addAttribute("user", user);
+        UserDTO userDTO = userService.getCurrentUser();
+        model.addAttribute("userDTO", userDTO);
         return "Settings";
     }
 
-    @PreAuthorize("hasRole('USER')")
-    @PostMapping("/updateProfile")
-    public String updateProfile(@ModelAttribute("user") UserDTO userDTO) {
-        userService.updateUser(userDTO);
-        return "redirect:/Settings"; // Redirect to settings page after update
-    }
 
     @PreAuthorize("permitAll()")
     @GetMapping("/Register")
@@ -65,6 +60,14 @@ public class UserController {
         userService.saveUser(userDTO);
         return "redirect:/HomePage";
     }
+
+    @PreAuthorize("permitAll()")
+    @PostMapping("/Settings")
+    public String updateUser(@ModelAttribute UserDTO userDTO) {
+        userService.updateUser(userDTO);
+        return "redirect:/Profile";
+    }
+
 
     @PreAuthorize("hasRole('USER')")
     @GetMapping("/LogOut")

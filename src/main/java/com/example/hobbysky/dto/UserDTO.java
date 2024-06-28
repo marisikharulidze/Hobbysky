@@ -16,6 +16,7 @@ import java.util.Set;
 public class UserDTO {
     private Long id;
 
+
     @NotEmpty(message = "First name is required")
     @Size(max = 40, message = "First name must be less than 40 characters")
     private String firstName;
@@ -24,7 +25,7 @@ public class UserDTO {
     @Size(max = 40, message = "Last name must be less than 40 characters")
     private String lastName;
 
-    @NotNull(message = "Date of birth is required")
+//    @NotNull(message = "Date of birth is required")
     @Past(message = "Date of birth must be a past date")
     private LocalDate dateOfBirth;
 
@@ -39,7 +40,7 @@ public class UserDTO {
     private LocalDateTime creationDate;
     private LocalDateTime lastModifiedDate;
 
-    @NotEmpty(message = "Role is required")
+//    @NotEmpty(message = "Role is required")
     @Size(max = 10, message = "Role must be less than 10 characters")
     private String role;
 

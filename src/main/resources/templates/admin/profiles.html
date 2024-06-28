@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Profiles Management</title>
@@ -121,10 +121,10 @@
     </script>
 </head>
 <body>
-<h1>Profiles Management</h1>
+<h1 style=" margin-left:42%">Profiles Management</h1>
 
 <!-- Profile Creation Form -->
-<form onsubmit="event.preventDefault(); createProfile();">
+<form onsubmit="event.preventDefault(); createProfile();" method="post" style="padding:15px; margin-left:43%">
     <label for="profileId">ID:</label>
     <input type="text" id="profileId" placeholder="Enter Profile ID" required><br><br>
 
@@ -145,6 +145,7 @@
 
     <button type="submit">Create Profile</button>
 </form>
+
 
 <!-- Profile List -->
 <ul id="profileList">

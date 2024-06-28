@@ -12,11 +12,31 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+
 @Entity
 @Table(name = "app_user", uniqueConstraints = {
         @UniqueConstraint(columnNames = "email")
 })
 public class User implements Serializable {
+    public User(Long id, String firstName, String lastName, LocalDate dateOfBirth, String email, String phoneNum, LocalDateTime creationDate, LocalDateTime lastModifiedDate, Role role, String password, Location locationId, Set<Hobby> hobbies, Set<Event> events) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.email = email;
+        this.phoneNum = phoneNum;
+        this.creationDate = creationDate;
+        this.lastModifiedDate = lastModifiedDate;
+        this.role = role;
+        this.password = password;
+        this.locationId = locationId;
+        this.hobbies = hobbies;
+        this.events = events;
+    }
+
+    public User() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -167,14 +187,6 @@ public class User implements Serializable {
         this.events = events;
     }
 
-
-//    @ManyToMany
-//    @JoinTable(
-//            name = "hobbies",
-//            joinColumns = @JoinColumn(name = "userId"),
-//            inverseJoinColumns = @JoinColumn(name = "hobbyId")
-//    )
-//    private Set<Hobby> hobbies;
 }
 
 
@@ -195,20 +207,3 @@ public class User implements Serializable {
 //    )
 //    private Set<Event> events;
 
-// Getters and setters...
-//
-//    public Set<Hobby> getHobbies() {
-//        return hobbies;
-//    }
-//
-//    public void setHobbies(Set<Hobby> hobbies) {
-//        this.hobbies = hobbies;
-//    }
-//
-//    public Set<Event> getEvents() {
-//        return events;
-//    }
-//
-//    public void setEvents(Set<Event> events) {
-//        this.events = events;
-//    }

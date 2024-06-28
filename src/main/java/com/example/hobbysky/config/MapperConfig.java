@@ -14,10 +14,10 @@ public class MapperConfig {
         return UserMapper.INSTANCE;
     }
 
-    @Bean
-    public LocationMapper locationMapper() {
-        return LocationMapper.INSTANCE;
-    }
+//    @Bean
+//    public LocationMapper locationMapper() {
+//        return LocationMapper.INSTANCE;
+//    }
 
     @Bean
     public EventMapper eventMapper() {

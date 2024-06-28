@@ -21,6 +21,24 @@ public class Event {
     @Column(name = "name", nullable = false, length = 30)
     private String name;
 
+    public Event(Long id, String name, Date date, Location location, String description, Hobby hobby, Integer numOfParticipants, String status, String image, Date creationDate, Date lastModifiedDate, Set<User> users) {
+        this.id = id;
+        this.name = name;
+        this.date = date;
+        this.location = location;
+        this.description = description;
+        this.hobby = hobby;
+        this.numOfParticipants = numOfParticipants;
+        this.status = status;
+        this.image = image;
+        this.creationDate = creationDate;
+        this.lastModifiedDate = lastModifiedDate;
+        this.users = users;
+    }
+
+    public Event() {
+    }
+
     @Column(name = "date", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
