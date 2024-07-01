@@ -4,6 +4,8 @@ import com.example.hobbysky.dto.EventDTO;
 import com.example.hobbysky.dto.HobbyDTO;
 import com.example.hobbysky.dto.LocationDTO;
 import com.example.hobbysky.dto.UserDTO;
+import com.example.hobbysky.mapper.EventMapper;
+import com.example.hobbysky.model.Event;
 import com.example.hobbysky.service.EventService;
 import com.example.hobbysky.service.HobbyService;
 import com.example.hobbysky.service.LocationService;
@@ -17,12 +19,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
+//import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -31,14 +34,16 @@ public class EventsController {
     private final HobbyService hobbyService;
     private final UserService userService;
     private final LocationService locationService;
+    private final EventMapper eventMapper;
 
     private static final String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/uploads";
 
-    public EventsController(EventService eventService, HobbyService hobbyService, UserService userService, LocationService locationService) {
+    public EventsController(EventService eventService, HobbyService hobbyService, UserService userService, LocationService locationService, EventMapper eventMapper) {
         this.eventService = eventService;
         this.hobbyService = hobbyService;
         this.userService = userService;
         this.locationService = locationService;
+        this.eventMapper = eventMapper;
     }
 
     @PreAuthorize("hasRole('USER')")
@@ -71,21 +76,12 @@ public class EventsController {
         return "AddEvent";
     }
 
-//    @PreAuthorize("hasRole('USER')")
+    //    @PreAuthorize("hasRole('USER')")
     @PostMapping("/AddEvent")
     @PreAuthorize("permitAll()")
-    public String addEvent(@ModelAttribute EventDTO eventDTO, @RequestParam("image") MultipartFile file) {
-        if (!file.isEmpty()) {
-            try {
-                byte[] bytes = file.getBytes();
-                Path path = Paths.get(UPLOAD_DIRECTORY + "/" + file.getOriginalFilename());
-                Files.write(path, bytes);
-                eventDTO.setImage(path.toString());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public String addEvent(@ModelAttribute EventDTO eventDTO, Model model) {
         eventService.createEvent(eventDTO);
+        model.addAttribute("event", eventDTO);
         return "redirect:/Events";
     }
 

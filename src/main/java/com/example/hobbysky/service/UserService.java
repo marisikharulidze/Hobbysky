@@ -79,6 +79,7 @@ public class UserService implements UserDetailsService {
         User user = userRepository.findById(userDTO.getId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
         userMapper.updateUserFromDTO(userDTO, user);
+        user.setRole(Role.customer);
         userRepository.save(user);
     }
 

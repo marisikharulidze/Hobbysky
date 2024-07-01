@@ -38,14 +38,6 @@ public class UserController {
         return "People";
     }
 
-    @PreAuthorize("hasRole('USER')")
-    @GetMapping("/Settings")
-    public String settings(Model model) {
-        UserDTO userDTO = userService.getCurrentUser();
-        model.addAttribute("userDTO", userDTO);
-        return "Settings";
-    }
-
 
     @PreAuthorize("permitAll()")
     @GetMapping("/Register")
@@ -59,6 +51,14 @@ public class UserController {
     public String registerUser(@ModelAttribute("userDTO") UserDTO userDTO) {
         userService.saveUser(userDTO);
         return "redirect:/HomePage";
+    }
+
+    @PreAuthorize("hasRole('USER')")
+    @GetMapping("/Settings")
+    public String settings(Model model) {
+        UserDTO user = userService.getCurrentUser();
+        model.addAttribute("user", user);
+        return "settings";
     }
 
     @PreAuthorize("permitAll()")

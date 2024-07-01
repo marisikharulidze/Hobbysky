@@ -105,10 +105,11 @@ hr {
 
 <main>
     <div class="container">
-        <form th:action="@{/Profile}" method="post" enctype="multipart/form-data">
+<!--         enctype="multipart/form-data"-->
+        <form th:action="@{/Settings}" method="post">
             <input type="hidden" id="id" name="id" value="${user.id}">
-            <label for="profile-picture">Profile Picture:</label>
-            <input type="file" id="profile-picture" name="profilePicture">
+<!--            <label for="profile-picture">Profile Picture:</label>-->
+<!--            <input type="file" id="profile-picture" name="profilePicture">-->
 
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" required>
@@ -116,14 +117,14 @@ hr {
             <label for="lastName">Last Name:</label>
             <input type="text" id="lastName" name="lastName" required>
 
-            <label for="phoneNum">Phone Number:</label>
-            <input type="text" id="phoneNum" name="phoneNum">
+<!--            <label for="phoneNum">Phone Number:</label>-->
+<!--            <input type="text" id="phoneNum" name="phoneNum">-->
 
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location">
+<!--            <label for="location">Location:</label>-->
+<!--            <input type="text" id="location" name="location">-->
 
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob">
+<!--            <label for="dob">Date of Birth:</label>-->
+<!--            <input type="date" id="dob" name="dob">-->
 
             <hr>
 

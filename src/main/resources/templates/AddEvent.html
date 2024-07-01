@@ -110,18 +110,20 @@ margin-bottom: 0;
     <main>
         <div class="add-event-container">
             <h2 class="form-title">Add Event</h2>
-            <form th:action="@{/AddEvent}" method="post" enctype="multipart/form-data">
+<!--            enctype="multipart/form-data"-->
+            <form th:action="@{/AddEvent}" method="post" >
+                <input type="hidden" id="eventId" name="id" th:value="${event?.id}" />
                 <div class="form-group">
                     <label for="name">Event Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" >
                 </div>
                 <div class="form-group">
                     <label for="date">Event Date:</label>
-                    <input type="datetime-local" id="date" name="date" required>
+                    <input type="datetime-local" id="date" name="date" >
                 </div>
                 <div class="form-group">
                     <label for="location">Location:</label>
-                    <select id="location" name="location" required>
+                    <select id="location" name="location" >
                         <option value="" disabled selected>Select a location</option>
                     </select>
                 </div>
@@ -131,7 +133,7 @@ margin-bottom: 0;
                 </div>
                 <div class="form-group">
                     <label for="hobby">Hobby:</label>
-                    <select id="hobby" name="hobby" required>
+                    <select id="hobby" name="hobby">
                         <option value="" disabled selected>Select a hobby</option>
                     </select>
                 </div>
@@ -139,13 +141,16 @@ margin-bottom: 0;
                     <label for="numOfParticipants">Number of Participants:</label>
                     <input type="number" id="numOfParticipants" name="numOfParticipants">
                 </div>
-                <div class="form-group">
-                    <label for="status">Status:</label>
-                    <input type="text" id="status" name="status" required>
-                </div>
+<!--                <div class="form-group">-->
+<!--                    <label for="status">Status:</label>-->
+<!--                    <select id="status" name="status" >-->
+<!--                        <option value="active">True</option>-->
+<!--                        <option value="false">False</option>-->
+<!--                    </select>-->
+<!--                </div>-->
                 <div class="form-group">
                     <label for="image">Upload Image:</label>
-                    <input type="file" id="image" name="image" accept="image/*" required>
+                    <input type="file" name="imageFile" id="image" >
                 </div>
                 <div class="form-group">
                     <button type="submit" class="submit-btn">Add Event</button>

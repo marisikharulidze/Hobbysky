@@ -1,7 +1,9 @@
 package com.example.hobbysky.controller;
 
+import com.example.hobbysky.dto.ProfileDTO;
 import com.example.hobbysky.dto.UserDTO;
 import com.example.hobbysky.model.User;
+import com.example.hobbysky.service.ProfileService;
 import com.example.hobbysky.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -19,9 +21,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ProfileController {
 
     private UserService userService;
+    private final ProfileService profileService;
 
-    public ProfileController(UserService userService) {
+    public ProfileController(UserService userService, ProfileService profileService) {
         this.userService = userService;
+        this.profileService = profileService;
     }
 
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
@@ -34,9 +38,9 @@ public class ProfileController {
 
     @PreAuthorize("hasRole('USER')")
     @PostMapping("/updateProfile")
-    public String updateProfile(@ModelAttribute("user") UserDTO userDTO) {
-        userService.updateUser(userDTO);
-        return "redirect:/Profile"; // Redirect to settings page after update
+    public String updateProfile(@ModelAttribute("user") ProfileDTO profileDTO) {
+        profileService.updateProfile(profileDTO.getId(),profileDTO);
+        return "redirect:/Profile";
     }
 
     @PreAuthorize("hasRole('USER')")

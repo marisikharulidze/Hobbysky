@@ -14,6 +14,11 @@ public class Hobby {
     private String name;
 
 
+    public Hobby(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Hobby() {
     }
 

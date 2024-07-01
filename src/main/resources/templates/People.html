@@ -49,18 +49,16 @@
                     <table style="position:absolute; top:460px; ">
                         <thead>
                         <tr>
-                            <th>ID</th>
+<!--                            <th>ID</th>-->
                             <th>Name</th>
                             <th>Last Name</th>
-                            <th>Date of Birth</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="person : ${people}">
-                            <td> <a th:href="@{/Profile/{id}(id=${person.id})}" th:text="${person.id}">...</a></td>
+<!--                            <td> <a th:href="@{/Profile/{id}(id=${person.id})}" th:text="${person.id}">...</a></td>-->
                             <td><a th:href="@{/Profile/{id}(id=${person.id})}" th:text="${person.firstName}"></a></td>
                             <td><a th:href="@{/Profile/{id}(id=${person.id})}" th:text="${person.lastName}"></a></td>
-                            <td><a th:href="@{/Profile/{id}(id=${person.id})}" th:text="${person.dateOfBirth}"></a></td>
                         </tr>
                         </tbody>
                     </table>

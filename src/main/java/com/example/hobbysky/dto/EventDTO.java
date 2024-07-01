@@ -2,6 +2,7 @@ package com.example.hobbysky.dto;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -20,6 +21,7 @@ public class EventDTO {
     private HobbyDTO hobby;
     private Integer numOfParticipants;
     private String status;
+//    private MultipartFile imageFile;
     private String image;
     private Date creationDate;
     private Date lastModifiedDate;
@@ -72,6 +74,14 @@ public class EventDTO {
         this.description = description;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public HobbyDTO getHobby() {
         return hobby;
     }
@@ -96,13 +106,13 @@ public class EventDTO {
         this.status = status;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
+//    public MultipartFile getImageFile() {
+//        return imageFile;
+//    }
+//
+//    public void setImageFile(MultipartFile imageFile) {
+//        this.imageFile = imageFile;
+//    }
 
     public Date getCreationDate() {
         return creationDate;

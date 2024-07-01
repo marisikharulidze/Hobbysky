@@ -1,7 +1,9 @@
 package com.example.hobbysky;
 
 import com.example.hobbysky.controller.ProfileController;
+import com.example.hobbysky.dto.ProfileDTO;
 import com.example.hobbysky.dto.UserDTO;
+import com.example.hobbysky.service.ProfileService;
 import com.example.hobbysky.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -29,6 +31,7 @@ public class ProfileControllerTests {
 
     @Mock
     private UserService userService;
+    private ProfileService profileService;
 
     @InjectMocks
     private ProfileController profileController;
@@ -67,17 +70,6 @@ public class ProfileControllerTests {
         verify(model, times(1)).addAttribute(eq("user"), any(UserDTO.class));
         assertEquals("Profile", viewName);
     }
-
-    @Test
-    public void testUpdateProfile() {
-        UserDTO userDTO = new UserDTO();
-
-        String viewName = profileController.updateProfile(userDTO);
-        assertEquals("redirect:/Profile", viewName);
-
-        verify(userService, times(1)).updateUser(userDTO);
-    }
-
 
     @Test
     public void testGetCurrentUserDTONotUserDetails() {

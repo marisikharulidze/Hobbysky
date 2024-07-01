@@ -19,6 +19,16 @@ public class Location {
     @Column(name = "city", length = 50)
     private String city;
 
+    public Location(Long id, String country, String city) {
+        this.id = id;
+        this.country = country;
+        this.city = city;
+    }
+
+    public Location() {
+
+    }
+
     public Long getId() {
         return id;
     }

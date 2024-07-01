@@ -1,8 +1,6 @@
 package com.example.hobbysky.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -39,12 +37,30 @@ public class Event {
     public Event() {
     }
 
-    @Column(name = "date", nullable = false)
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", date=" + date +
+                ", location=" + location +
+                ", description='" + description + '\'' +
+                ", hobby=" + hobby +
+                ", numOfParticipants=" + numOfParticipants +
+                ", status='" + status + '\'' +
+                ", image='" + image + '\'' +
+                ", creationDate=" + creationDate +
+                ", lastModifiedDate=" + lastModifiedDate +
+                ", users=" + users +
+                '}';
+    }
+
+    @Column(name = "date")//, nullable = false
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name = "locationId", nullable = false)
+    @JoinColumn(name = "locationId")//, nullable = false
     private Location location;//locationId?
 
     @Column(name = "description", length = 100)
@@ -63,7 +79,7 @@ public class Event {
     @Column(name = "image", length = 300)// nullable = false,
     private String image;
 
-    @Column(name = "creationDate", nullable = false)
+    @Column(name = "creationDate")//, nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
 
@@ -78,6 +94,7 @@ public class Event {
             joinColumns = @JoinColumn(name = "event_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private Set<User> users = new HashSet<>();
+
 
     public Long getId() {
         return id;

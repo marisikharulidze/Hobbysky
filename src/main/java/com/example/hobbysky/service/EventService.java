@@ -4,11 +4,16 @@ import com.example.hobbysky.dto.EventDTO;
 import com.example.hobbysky.dto.UserDTO;
 import com.example.hobbysky.mapper.EventMapper;
 import com.example.hobbysky.model.Event;
+import com.example.hobbysky.model.Hobby;
+import com.example.hobbysky.model.Location;
 import com.example.hobbysky.model.User;
 import com.example.hobbysky.repository.EventRepository;
 import com.example.hobbysky.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,7 +51,20 @@ public class EventService {
     }
 
     public void createEvent(EventDTO eventDTO) {
+        LocalDate localDate = LocalDate.now();
+        Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
         Event event = eventMapper.eventDTOToEvent(eventDTO);
+        event.setCreationDate(date);
+        event.setLastModifiedDate(date);
+        event.setDate(date);
+//        event.setImage("none");
+//        event.setId(7L);
+//		event.setName("smth");
+//		event.setLocation(new Location(1L,"Germany", "Berlin"));
+//		event.setHobby( new Hobby(7L,"Mountain climbing"));
+//		event.setNumOfParticipants(5);
+//		event.setStatus("active");
         event = eventRepository.save(event);
         eventMapper.eventToEventDTO(event);
     }
